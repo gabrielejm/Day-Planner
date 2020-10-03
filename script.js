@@ -1,6 +1,6 @@
 //task one: 
   //under header, show current date (use moment.js)
-
+console.log(moment());
 //task two: 
   //make timeblocks, row, 3 columns for each hour
 
@@ -24,4 +24,8 @@
 
 //task seven:
   //figure out how to make sure user text stays saved when the page is refreshed
+  //get value from local storage and put back into text area when page is refreshed.
+
+//optional
+  //add clear all local storage
 
