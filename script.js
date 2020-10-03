@@ -1,6 +1,9 @@
 //task one: 
   //under header, show current date (use moment.js)
-console.log(moment());
+var currentDate = moment().format('dddd, MMMM Do YYYY');
+
+$('#currentDay').text(currentDate);
+
 //task two: 
   //make timeblocks, row, 3 columns for each hour
 

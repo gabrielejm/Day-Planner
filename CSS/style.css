@@ -70,8 +70,9 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-#labels {
-  
+.labels {
+  font-weight: bold;
+  justify-content: center;
   
 }
 
@@ -81,4 +82,16 @@ textarea{
 
 body {
   padding-bottom: 25px;
+}
+
+.past {
+  
+}
+
+.present {
+
+}
+
+.future {
+  
 }
