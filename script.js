@@ -4,17 +4,17 @@
   //under header, show current date (use moment.js)
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
 var currentHour = moment().format('h')
+console.log('currentHour:', currentHour)
 var presentTime = $('#currentDay').text(currentDate);
-var dateObj = new Date();
-var zeroHour = $('#zero-hour').dateObj.setHours(9);
-var firstHour = $('#first-hour').dateObj.setHours(10);
-var secondHour = $('#second-hour').dateObj.setHours(11);
-var thirdHour = $('#third-hour').dateObj.setHours(12);
-var fourthHour = $('#fourth-hour').dateObj.setHours(13);
-var fifthHour = $('#fifth-hour').dateObj.setHours(14);
-var sixthHour = $('#sixth-hour').dateObj.setHours(15);
-var seventhHour = $('#seventh-hour').dateObj.setHours(16);
-var eighthHour = $('#eigth-hour').dateObj.setHours(17);
+var zeroHour = $('#hour-zero').val(9);
+var firstHour = $('#hour-one').val(10);
+var secondHour = $('#hour-two').val(11);
+var thirdHour = $('#hour-three').val(12);
+var fourthHour = $('#hour-four').val(13);
+var fifthHour = $('#hour-five').val(14);
+var sixthHour = $('#hour-six').val(15);
+var seventhHour = $('#hour-seven').val(16);
+var eighthHour = $('#hour-eight').val(17);
 
 var timeBlocks = [zeroHour, firstHour, secondHour, thirdHour, fourthHour, fifthHour, sixthHour, seventhHour, eighthHour]
 
@@ -25,6 +25,7 @@ var timeBlocks = [zeroHour, firstHour, secondHour, thirdHour, fourthHour, fifthH
 
 
 
+checkTime()
 
 
 
@@ -33,12 +34,19 @@ var timeBlocks = [zeroHour, firstHour, secondHour, thirdHour, fourthHour, fifthH
 //task three:
   // (.addclass) use to add class to change color based on time (past, present, future)
 function checkTime() {
-  for (let i = 0; i < timeBlocks.length; i++) {
+  for (var i = 0; i < timeBlocks.length; i++) {
     if (currentHour < timeBlocks[i]) {
+      $(timeBlocks[i]).addClass('future');
+    }
+
+    else if (currentHour > timeBlocks[i]) {
+      $(timeBlocks[i]).addClass('past');
+
+    } else {
+      $(timeBlocks[i]).addClass('present');
       
     }
-    
-  }
+    }
 
   
   
