@@ -35,14 +35,20 @@ function checkTime() {
       console.log('future', currentHour)
       console.log('futurevalue', timeBlocks[i].val())
       $(timeBlocks[i]).addClass('future');
+
     }
 
-    else if (currentHour >= timeBlocks[i].val()) {
+    else if (currentHour > timeBlocks[i].val()) {
       console.log('past', currentHour)
       console.log('pastvalue', timeBlocks[i].val())
+      $(timeBlocks[i]).removeClass('future');
+
       $(timeBlocks[i]).addClass('past');
 
     } else {
+      $(timeBlocks[i]).removeClass('future');
+      $(timeBlocks[i]).removeClass('past');
+
       $(timeBlocks[i]).addClass('present');
       console.log('present', currentHour)
       console.log('presentvalue', timeBlocks[i].val())
@@ -58,10 +64,22 @@ function checkTime() {
   //figure out how to save user input as a value(.val?), must ONLY save event on the same line as the save button
   //task six:
   //figure out how to save text into local storage by clicking save button
+  //set time and input in localstorage
   
-    $('button').on('click', function (){
-      var findInput = $(this).parent().prev().children();
-      localStorage.setItem('event', findInput.val());
+  // $('.saveBtn').on('click', function (){
+  //   var findInput = $(this).parent().prev().children(".description").val();
+  //   var time = 
+  //   console.log("parent: ",  $(this).parent(".labels"))
+  //   console.log("input: ", findInput)
+  //   localStorage.setItem('event', findInput, time);
+  // })
+
+
+  
+    $('.saveBtn').on('click', function (){
+      var findInput = $(this).parent().prev().children('.description').val();
+      console.log('findInput:', findInput)
+      localStorage.setItem('event', findInput);
       
       
      
