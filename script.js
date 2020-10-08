@@ -3,9 +3,9 @@
 //task one: DONE
   //under header, show current date (use moment.js)
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
-var currentHour = moment().format('HH');
+var currentHour = moment().hour();
 var presentTime = $('#currentDay').text(currentDate);
-var zeroHour = $('#hour-zero').val(09);
+var zeroHour = $('#hour-zero').val(9);
 var firstHour = $('#hour-one').val(10);
 var secondHour = $('#hour-two').val(11);
 var thirdHour = $('#hour-three').val(12);
@@ -31,27 +31,23 @@ checkTime()
   // (.addclass) use to add class to change color based on time (past, present, future)
 function checkTime() {
   for (var i = 0; i < timeBlocks.length; i++) {
-    if (currentHour < timeBlocks[i].val()) {
-      console.log('future', currentHour)
-      console.log('futurevalue', timeBlocks[i].val())
-      $(timeBlocks[i]).addClass('future');
+    var hour = parseInt(timeBlocks[i].val())
+    if (currentHour > hour) {
+      $(timeBlocks[i]).addClass('past');
+    console.log(timeBlocks[i].val());
 
     }
 
-    else if (currentHour > timeBlocks[i].val()) {
-      console.log('past', currentHour)
-      console.log('pastvalue', timeBlocks[i].val())
-      $(timeBlocks[i]).removeClass('future');
-
-      $(timeBlocks[i]).addClass('past');
+    else if (currentHour === hour) {
+      $(timeBlocks[i]).removeClass('past');
+      $(timeBlocks[i]).addClass('present');
 
     } else {
-      $(timeBlocks[i]).removeClass('future');
+      $(timeBlocks[i]).removeClass('present');
       $(timeBlocks[i]).removeClass('past');
 
-      $(timeBlocks[i]).addClass('present');
-      console.log('present', currentHour)
-      console.log('presentvalue', timeBlocks[i].val())
+      $(timeBlocks[i]).addClass('future');
+      
     }
     }
 
@@ -78,14 +74,19 @@ function checkTime() {
   
     $('.saveBtn').on('click', function (){
       var findInput = $(this).parent().prev().children('.description').val();
+      var key = $(this).parent().parent().attr("id").split("-")[1]
       console.log('findInput:', findInput)
-      localStorage.setItem('event', findInput);
+      localStorage.setItem(key, findInput);
       
       
      
     })
 
 
+
+for (let i = 9; i < 18; i++) {
+  $("#hour-" + i + " .description").val(localStorage.getItem(i))
+}
   
     
 
@@ -97,7 +98,9 @@ function checkTime() {
 //task seven:
   //figure out how to make sure user text stays saved when the page is refreshed
   //get value from local storage and put back into text area when page is refreshed.
-function getData () {}
+function getData () {
+
+}
   
 //optional
   //add clear all local storage
