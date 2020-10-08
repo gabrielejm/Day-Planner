@@ -1,7 +1,3 @@
-
-
-//task one: DONE
-  //under header, show current date (use moment.js)
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a');
 var currentHour = moment().hour();
 var presentTime = $('#currentDay').text(currentDate);
@@ -27,8 +23,7 @@ checkTime()
 
 
 
-//task three:
-  // (.addclass) use to add class to change color based on time (past, present, future)
+
 function checkTime() {
   for (var i = 0; i < timeBlocks.length; i++) {
     var hour = parseInt(timeBlocks[i].val())
@@ -56,31 +51,19 @@ function checkTime() {
 };
 
 
-//task four:
-  //figure out how to save user input as a value(.val?), must ONLY save event on the same line as the save button
-  //task six:
-  //figure out how to save text into local storage by clicking save button
-  //set time and input in localstorage
-  
-  // $('.saveBtn').on('click', function (){
-  //   var findInput = $(this).parent().prev().children(".description").val();
-  //   var time = 
-  //   console.log("parent: ",  $(this).parent(".labels"))
-  //   console.log("input: ", findInput)
-  //   localStorage.setItem('event', findInput, time);
-  // })
+
 
 
   
-    $('.saveBtn').on('click', function (){
-      var findInput = $(this).parent().prev().children('.description').val();
-      var key = $(this).parent().parent().attr("id").split("-")[1]
-      console.log('findInput:', findInput)
-      localStorage.setItem(key, findInput);
+$('.saveBtn').on('click', function (){
+  var findInput = $(this).parent().prev().children('.description').val();
+  var key = $(this).parent().parent().attr("id").split("-")[1]
+  console.log('findInput:', findInput)
+  localStorage.setItem(key, findInput);
       
       
      
-    })
+})
 
 
 
@@ -95,13 +78,5 @@ for (let i = 9; i < 18; i++) {
   
 
 
-//task seven:
-  //figure out how to make sure user text stays saved when the page is refreshed
-  //get value from local storage and put back into text area when page is refreshed.
-function getData () {
 
-}
-  
-//optional
-  //add clear all local storage
 
